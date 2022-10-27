@@ -5,5 +5,6 @@ This program gets a list of your tweets and puts them all into a file.
 2. Go into the archive, and get `tweet.js` from the `data/` directory
 3. Copy that file into this directory and rename it `tweets.py`
 4. Open `tweets.py` and rename `window.YTD.tweet.part0` to `raw_tweets`
-5. Replace every instance of `false` with `False` to make it compatible
-with Python
+5. Replace every instance of `: false` with `: False` and `: true` with
+`: True` to make it compatible with Python
+6. Run the program

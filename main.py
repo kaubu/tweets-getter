@@ -30,7 +30,7 @@ for rt in tweets.raw_tweets:
         continue
     
     # Get rid of empty lines
-    cleaned_tweet = re.sub("(?:[\t ]*(?:\r?\n|\r))+", "", cleaned_tweet)
+    cleaned_tweet = re.sub("(?:[\t ]*(?:\r?\n|\r))+", ". ", cleaned_tweet)
 
     # Get rid of 
     
@@ -39,18 +39,23 @@ for rt in tweets.raw_tweets:
 clean_tweets = list(set(clean_tweets)) # Remove duplicates
 
 clean_tweets_2 = []
+clean_tweets_3 = ""
 
-with open(output_file, "w") as f:
-    for tweet in clean_tweets:
-        # if len(tweet) <= 1:
-        #     print(f"short: '{tweet}' | stripped: '{tweet.strip()}'")
+for tweet in clean_tweets:
+    # if len(tweet) <= 1:
+    #     print(f"short: '{tweet}' | stripped: '{tweet.strip()}'")
 
-        if tweet.strip() == "" or tweet.strip() == " ": # To stop empty lines
-            continue
-        
-        # Else
-        # f.write(f"{tweet.strip()}\n")
-        clean_tweets_2.append(f"{tweet.strip()}\n")
+    if tweet.strip() == "" or tweet.strip() == " ": # To stop empty lines
+        continue
     
+    # Else
+    # f.write(f"{tweet.strip()}\n")
+    clean_tweets_2.append(f"{tweet.strip()}\n")
+    clean_tweets_3 += f"{tweet.strip()}. "
+
+with open(output_file1, "a") as f:
     for tweet in clean_tweets_2:
         f.write(f"{tweet.strip()}\n")
+
+with open(output_file2, "a") as f:
+    f.write(clean_tweets_3.strip())

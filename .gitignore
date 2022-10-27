@@ -3,6 +3,8 @@
 example.js
 tweets.py
 tweets.txt
+tweets_by_line.txt
+bin/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
